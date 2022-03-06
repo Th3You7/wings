@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Box, Container } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { NavBar } from "./components";
+import { Login, Profile, Home } from "./screens";
 
 function App() {
+  const theme = useTheme();
+
+  const { pathname } = useLocation();
+  const md = useMediaQuery(theme.breakpoints.up("md"));
+  const lg = useMediaQuery(theme.breakpoints.up("lg"));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box component="div">
+      <NavBar />
+      <Container
+        maxWidth={pathname === "/login" ? "sm" : lg ? "lg" : md ? "md" : "sm"}
+        sx={{ marginTop: 4, marginBottom: 4 }}
+      >
+        <Routes>
+          <Route element={<Home />} path="/" />
+
+          <Route element={<Profile />} path="profile" />
+
+          <Route element={<Login />} path="login" />
+
+          {/* //* no match route */}
+          <Route path="*" element={<h1>There's nothing here!</h1>} />
+        </Routes>
+      </Container>
+    </Box>
   );
 }
 

@@ -1,0 +1,10 @@
+export enum USER_ACTION {
+  LOG_IN = "LOG_IN",
+  LOG_OUT = "LOG_OUT",
+}
+
+export enum DATA_FETCH {
+  DATA_LOADING = "DATA_LOADING",
+  DATA_SUCCESS = "DATA_SUCCESS",
+  DATA_ERROR = "DATA_ERROR",
+}
