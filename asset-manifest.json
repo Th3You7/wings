@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/wings/static/js/main.6c9b45fc.js",
+    "index.html": "/wings/index.html",
+    "main.6c9b45fc.js.map": "/wings/static/js/main.6c9b45fc.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.6c9b45fc.js"
+  ]
+}
